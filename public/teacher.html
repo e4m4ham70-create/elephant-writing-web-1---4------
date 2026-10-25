@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Teacher Dashboard · Elephant Writing</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="topbar teacher-topbar">
+    <div>
+      <div class="eyebrow">TEACHER DASHBOARD</div>
+      <h1>Smart Ways to Live with Elephants</h1>
+      <p>학생의 아이디어 → 1차 초안 → AI 제안 → 학생 선택 → 최종 글 과정을 확인합니다.</p>
+    </div>
+    <button id="logoutBtn" class="btn ghost">로그아웃</button>
+  </header>
+
+  <main class="teacher-shell">
+    <section id="teacherLogin" class="card login-card">
+      <h2>교사 로그인</h2>
+      <p>Firebase Authentication의 교사 계정으로 로그인합니다.</p>
+      <label>이메일 <input id="teacherEmail" type="email" autocomplete="username"></label>
+      <label>비밀번호 <input id="teacherPassword" type="password" autocomplete="current-password"></label>
+      <button id="teacherLoginBtn" class="btn primary">로그인</button>
+      <p id="loginMessage" class="tiny"></p>
+    </section>
+
+    <section id="teacherDashboard" class="hidden">
+      <div class="dashboard-controls card">
+        <div>
+          <h2>학급 글쓰기 현황</h2>
+          <p id="statsText">불러오는 중...</p>
+        </div>
+        <div class="control-row">
+          <input id="classFilter" placeholder="학급 필터 (예: 1-3)">
+          <input id="searchInput" placeholder="이름/번호 검색">
+          <button id="refreshBtn" class="btn ghost">새로고침</button>
+          <button id="csvBtn" class="btn primary">CSV 다운로드</button>
+        </div>
+      </div>
+
+      <section class="card table-card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>학급</th><th>번호</th><th>이름</th><th>현재 단계</th>
+                <th>1차 글</th><th>AI 점검</th><th>최종 글</th><th>AI 수용</th><th>보기</th>
+              </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="studentDetail" class="card detail-card hidden"></section>
+    </section>
+  </main>
+
+  <script type="module" src="./js/teacher.js"></script>
+</body>
+</html>

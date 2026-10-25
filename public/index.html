@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Ways to Live with Elephants</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GUIDED WRITING · AI LITERACY</div>
+      <h1>Smart Ways to Live with Elephants</h1>
+      <p>질문에 답하고, 초안을 쓰고, AI의 제안을 판단하여 나만의 글을 완성해 봅시다.</p>
+    </div>
+    <div id="saveStatus" class="save-status">저장 준비</div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="left-panel">
+      <section class="card student-card">
+        <h2>학생 정보</h2>
+        <div class="student-grid">
+          <label>학급 <input id="studentClass" maxlength="10" placeholder="예: 1-3"></label>
+          <label>번호 <input id="studentNumber" maxlength="3" placeholder="예: 12"></label>
+          <label>이름 <input id="studentName" maxlength="20" placeholder="이름"></label>
+        </div>
+        <button id="startBtn" class="btn primary">글쓰기 시작</button>
+        <p class="tiny">처음 시작할 때만 입력합니다. 이후에는 자동 저장됩니다.</p>
+      </section>
+
+      <nav id="stepNav" class="step-nav" aria-label="글쓰기 단계"></nav>
+
+      <section id="workspace" class="card hidden">
+        <div class="step-head">
+          <span id="stepBadge" class="step-badge">1</span>
+          <div>
+            <h2 id="stepTitle"></h2>
+            <p id="stepSubtitle"></p>
+          </div>
+        </div>
+        <div id="stepBody"></div>
+        <div class="step-actions">
+          <button id="prevBtn" class="btn ghost">← 이전</button>
+          <button id="nextBtn" class="btn primary">다음 →</button>
+        </div>
+      </section>
+    </aside>
+
+    <section class="right-panel">
+      <section class="preview card sticky">
+        <div class="preview-top">
+          <div>
+            <div class="eyebrow">MY WRITING JOURNEY</div>
+            <h2>Live Smart with Elephants</h2>
+          </div>
+          <button id="printBtn" class="btn ghost small">PDF / 인쇄</button>
+        </div>
+
+        <div class="essential">
+          <small>ESSENTIAL QUESTION</small>
+          <strong>How can people and elephants live together safely with technology?</strong>
+        </div>
+
+        <div id="journeySummary" class="journey-summary">
+          <div class="empty-state">왼쪽에서 글쓰기를 시작하면 이곳에 과정이 모입니다.</div>
+        </div>
+
+        <div id="finalArtBox" class="final-art hidden">
+          <h3>My Writing Picture</h3>
+          <img id="finalImage" alt="학생의 최종 글을 반영해 생성된 그림" />
+          <p id="imagePromptView" class="tiny"></p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="./js/app.js"></script>
+  <img src="./images/emily-sign.png" class="corner-seal" alt="Emily Kim signature">
+</body>
+</html>
